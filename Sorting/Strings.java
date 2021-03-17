@@ -27,7 +27,7 @@ public class Strings
         System.out.println ("\nEnter the word...");
         for (int i = 0; i < size; i++)
             strList[i] = scan.next();
-        Sorting.insertionSort(strList); 
+        Sorting.selectionSort(strList); 
         System.out.println ("\nYour words in sorted order...");
         for (int i = 0; i < size; i++)
             System.out.print(strList[i] + " ");
