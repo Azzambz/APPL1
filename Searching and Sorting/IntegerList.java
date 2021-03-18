@@ -66,9 +66,9 @@ public class IntegerList
     }
 
     void replaceFirst(int oldVal, int newVal) {
-        location = list.search(oldVal);
-        if(location != -1) {
-            list[location] = newVal;
+        int i = search(oldVal);
+        if(i != -1) {
+            list[i] = newVal;
         }
     }
 }
