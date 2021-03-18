@@ -76,6 +76,7 @@ public class IntegerListTest
             case 7 :
                 System.out.println("sort Decreasing");
                 list.sortDecreasing();
+                break;
             default:
             System.out.println("Sorry, invalid choice");
         }
@@ -93,7 +94,8 @@ public class IntegerListTest
         System.out.println("3: Find an element in the list using linear search");
         System.out.println("4: Print the list");
         System.out.println("5: replace First");
-        System.out.println("5: replace All");
+        System.out.println("6: replace All");
+        System.out.println("7: sort decrease");
         System.out.print("\nEnter your choice: ");
     }
 }
