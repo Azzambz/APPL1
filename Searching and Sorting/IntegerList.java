@@ -98,4 +98,25 @@ public class IntegerList
         }
     }
 
+    int binarySearchD(int target) {  
+        int location = -1;
+        int mid = list.length/2;  
+        int first = 0;
+        int last = list.length - 1;
+        while(first <= last) {  
+            if( list[mid] < target ) {  
+               first = mid + 1;     
+            } else if(list[mid] == target) {  
+               location = mid;
+               return location;  
+            } else {  
+               last = mid - 1;  
+            }  
+            mid = (first + last)/2;  
+        }  
+        if( first > last ) {  
+           return location;
+        }  
+        return location;
+    }  
 }
