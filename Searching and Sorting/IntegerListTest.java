@@ -56,7 +56,7 @@ public class IntegerListTest
                 list.print();
                 break;
              case 5:
-                System.out.print("replace First");
+                System.out.println("replace First");
                 System.out.println("old val");
                 int old = scan.nextInt();
                 System.out.println("new val");
@@ -64,6 +64,18 @@ public class IntegerListTest
                  
                 list.replaceFirst(old, nval);
                 break;
+            case 6 :
+                System.out.println("replace all");
+                System.out.println("old val");
+                old = scan.nextInt();
+                System.out.println("new val");
+                nval = scan.nextInt();
+
+                list.replaceAll(old, nval);
+                break;
+            case 7 :
+                System.out.println("sort Decreasing");
+                list.sortDecreasing();
             default:
             System.out.println("Sorry, invalid choice");
         }
@@ -81,6 +93,7 @@ public class IntegerListTest
         System.out.println("3: Find an element in the list using linear search");
         System.out.println("4: Print the list");
         System.out.println("5: replace First");
+        System.out.println("5: replace All");
         System.out.print("\nEnter your choice: ");
     }
 }

@@ -71,4 +71,31 @@ public class IntegerList
             list[i] = newVal;
         }
     }
+
+    void replaceAll(int oldVal, int newVal) {
+        int i;
+        do {
+            i = search(oldVal);
+            if(i != -1) {
+                list[i] = newVal;
+            }
+        } while(i != -1);
+    }
+
+    void sortDecreasing() {
+        int minIndex;
+        for (int i=0; i < list.length-1; i++)
+        {
+            //find biggest element in list starting at location i
+            minIndex = i;
+            for (int j = i+1; j < list.length; j++)
+                if (list[j] > list[minIndex])
+                    minIndex = j;
+            //swap list[i] with biggest element
+            int temp = list[i];
+            list[i] = list[minIndex];
+            list[minIndex] = temp;
+        }
+    }
+
 }
