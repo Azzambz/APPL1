@@ -13,7 +13,7 @@ public class MathUtils
     {
         int fac = 1;
         if (n < 0 ) {
-            throw new IllegalArgumentException("negatif");
+            throw new IllegalArgumentException();
         }
         for (int i=n; i>0; i--)
             fac *= i;

@@ -16,8 +16,12 @@ public class Factorials
         {
             System.out.print("Enter an integer: ");
             int val = scan.nextInt();
-            System.out.println("Factorial(" + val + ") = "
-            + MathUtils.factorial(val));
+            try {
+                System.out.println("Factorial(" + val + ") = "
+                + MathUtils.factorial(val));
+            } catch (IllegalArgumentException e) {
+                System.out.println("tidak boleh bilangan negatif");
+            }
             System.out.print("Another factorial? (y/n) ");
             keepGoing = scan.next();
         }
