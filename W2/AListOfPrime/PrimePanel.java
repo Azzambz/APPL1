@@ -32,6 +32,7 @@ public class PrimePanel extends JPanel
         computeButton = new JButton ("Click to see all primes up to your number!");
         primeList = new JTextArea (10, 30);
         scrollPane = new JScrollPane (primeList);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
         computeButton.addActionListener(new ButtonListener());
 
@@ -40,15 +41,12 @@ public class PrimePanel extends JPanel
         add (inputLabel);
         add (number);
         add (computeButton);
-        add (primeList);
-        add (scrollPane, BorderLayout.CENTER);
+        add (scrollPane);
 
         setPreferredSize (new Dimension (400, 320));
         setBackground (Color.yellow);
 
         setSize(240, 240);
-        // setLocationByPlatform(true);
-        setVisible(true);
     }
 
     // *****************************************************************
@@ -62,36 +60,42 @@ public class PrimePanel extends JPanel
         // -----------------------------------------------------------
         public void actionPerformed (ActionEvent event)
         {
-            String textNum = number.getText();
-            int num = Integer.parseInt (textNum);
             String ans = "";
-            int count = 0;
-            if (num < 2)
-            ans = "There no primes less than " + num;
-            else
-            {
-                ans = " " + 2;
-                count++;
-                for (int i = 3; i <= num; i += 2)
+
+            try {
+                String textNum = number.getText();
+                int num = Integer.parseInt (textNum);
+                
+                int count = 0;
+                if (num < 2)
+                ans = "There no primes less than " + num;
+                else
                 {
-                    boolean foundDivisor = false;
-                    int j = 3;
-                    while (j < i && !foundDivisor)
+                    ans = " " + 2;
+                    count++;
+                    for (int i = 3; i <= num; i += 2)
                     {
-                        if (i % j == 0)
-                        foundDivisor = true;
-                        else
-                        j++;
-                    }
-                    // Add i to the list if it is prime
-                    if (j == i)
-                    {
-                        ans += " " + i;
-                        count++;
-                        if (count % 10 == 0)
-                        ans += "\n";
+                        boolean foundDivisor = false;
+                        int j = 3;
+                        while (j < i && !foundDivisor)
+                        {
+                            if (i % j == 0)
+                                foundDivisor = true;
+                            else
+                                j++;
+                        }
+                        // Add i to the list if it is prime
+                        if (j == i)
+                        {
+                            ans += " " + i;
+                            count++;
+                            if (count % 10 == 0)
+                            ans += "\n";
+                        }
                     }
                 }
+            } catch(NumberFormatException e) {
+                ans = "input harus berupa integer";
             }
             primeList.setText (ans);
         }
